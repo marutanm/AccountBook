@@ -1,22 +1,30 @@
 Kdkbook.controllers  do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
 
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
+    get :spend do
+        render 'spend_form'
+    end
 
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
+    post :spend do
+        params[:ammount]
+    end
+    # get :index, :map => "/foo/bar" do
+    #   session[:foo] = "bar"
+    #   render 'index'
+    # end
 
-  # get "/example" do
-  #   "Hello world!"
-  # end
+    # get :sample, :map => "/sample/url", :provides => [:any, :js] do
+    #   case content_type
+    #     when :js then ...
+    #     else ...
+    # end
 
-  
+    # get :foo, :with => :id do
+    #   "Maps to url '/foo/#{params[:id]}'"
+    # end
+
+    # get "/example" do
+    #   "Hello world!"
+    # end
+
+
 end
