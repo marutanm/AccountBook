@@ -5,8 +5,15 @@ Kdkbook.controllers  do
     end
 
     post :spend do
-        params[:ammount]
+        Spend.create_new_document(params)
+        redirect url(:list)
     end
+
+    get :list do
+        @documents = Spend.where(:uid => "temp").desc(:created_at)
+        render 'spend_list'
+    end
+
     # get :index, :map => "/foo/bar" do
     #   session[:foo] = "bar"
     #   render 'index'
