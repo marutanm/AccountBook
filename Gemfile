@@ -9,13 +9,13 @@ gem 'rack-flash'
 
 # Component requirements
 gem 'haml'
-gem 'mongoid'
+gem 'mongoid', "~> 2.0.2"
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
 
 
 # Padrino
-gem 'padrino', "0.9.29"
+gem 'padrino', "0.9.28"
 # Padrino EDGE
 # gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
