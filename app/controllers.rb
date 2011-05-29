@@ -1,22 +1,38 @@
 Kdkbook.controllers  do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
+    get :index do
+        'Hello world!'
+    end
 
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
+    get :spend do
+        'spend'
+    end
 
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
+    get :list do
+        'list'
+    end
 
-  # get "/example" do
-  #   "Hello world!"
-  # end
+    get :login do
+        haml <<-HAML.gsub(/^\s*/, '')
+            Logins with
+            =link_to('Twitter',  '/auth/twitter')
+        HAML
+    end
 
-  
+    get :profile do
+        content_type :text
+        current_account.to_yaml
+    end
+
+    get :destroy do
+        set_current_account(nil)
+        redirect url(:login)
+    end
+
+    get :auth, :map => '/auth/:provider/callback' do
+        auth    = request.env["omniauth.auth"]
+        account = Account.where(:uid => auth["uid"]).first || Account.create_with_omniauth(auth)
+        set_current_account(account)
+        redirect "http://" + request.env["HTTP_HOST"] + url(:spend)
+    end
+
 end

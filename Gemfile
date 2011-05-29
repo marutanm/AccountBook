@@ -13,7 +13,7 @@ gem 'mongoid', "~> 2.0.2"
 gem 'bson_ext', :require => "mongo"
 
 # Test requirements
-
+gem 'omniauth'
 
 # Padrino
 gem 'padrino', "0.9.28"
