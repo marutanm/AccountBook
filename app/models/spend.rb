@@ -16,7 +16,7 @@ class Spend
   # key :field <, :another_field, :one_more ....>
 
   def self.create_new_document(params)
-      create!(uid: "temp") do |db|
+      create!(uid: params[:uid]) do |db|
           db.ammount = params[:ammount]
           db.comment = params[:comment]
       end
