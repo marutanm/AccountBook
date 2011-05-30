@@ -4,11 +4,17 @@ Kdkbook.controllers  do
     end
 
     get :spend do
-        'spend'
+        render 'spend_form'
+    end
+
+    post :spend do
+        Spend.create_new_document(params)
+        redirect url(:list)
     end
 
     get :list do
-        'list'
+        @documents = Spend.where(:uid => "temp").desc(:created_at)
+        render 'spend_list'
     end
 
     get :login do
