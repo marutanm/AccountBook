@@ -113,6 +113,8 @@ GEM
     rack-openid (1.3.1)
       rack (>= 1.1.0)
       ruby-openid (>= 2.1.8)
+    rack-test (0.6.0)
+      rack (>= 1.0)
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
@@ -120,6 +122,7 @@ GEM
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
     rubyntlm (0.1.1)
+    shoulda (2.11.3)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
@@ -141,4 +144,6 @@ DEPENDENCIES
   omniauth
   padrino (= 0.9.28)
   rack-flash
+  rack-test
   rake (~> 0.8.7)
+  shoulda

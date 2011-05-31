@@ -1,6 +1,6 @@
 --- 
 :orm: mongoid
-:test: none
+:test: shoulda
 :mock: none
 :script: none
 :renderer: haml
