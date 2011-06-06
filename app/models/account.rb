@@ -14,6 +14,13 @@ class Account
                )
     end
 
+    def self.find_or_create_with_omniauth(auth)
+      find_or_create_by(uid: auth["uid"], name: auth["name"]) do |account|
+        account.name = auth["name"]
+        account.role = "users"
+      end
+    end
+
     def self.find_by_id(id)
         find(id) rescue nil
     end
