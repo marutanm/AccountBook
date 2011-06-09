@@ -4,8 +4,8 @@ class Spend
 
   # field <name>, :type => <type>, :default => <value>
   field :uid, :type => String
-  field :isSpend, :type => Boolean
-  field :ammount, :type => Integer
+  field :isSpend, :type => Boolean, :default => TRUE
+  field :amount, :type => Integer
   field :current, :type => Integer
   field :comment, :type => String
 
@@ -16,10 +16,18 @@ class Spend
   # key :field <, :another_field, :one_more ....>
 
   def self.create_new_document(params)
-      create!(uid: params[:uid]) do |db|
-          db.ammount = params[:ammount]
-          db.comment = params[:comment]
+    create!(uid: params[:uid]) do |db|
+      db.amount = params[:amount]
+      db.comment = params[:comment]
+      case params[:category]
+      when "expend"
+        db.current = where(uid: params[:uid]) ?
+        where(uid: params[:uid]).first.current.to_i - params[:amount] : params[:amount]
+      when "current"
+        db.current = params[:amount]
+        db.isSpend = FALSE
       end
+    end
   end
 
 end
