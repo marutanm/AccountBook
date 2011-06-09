@@ -37,7 +37,7 @@ Kdkbook.controllers  do
 
     get :auth, :map => '/auth/:provider/callback' do
         auth    = request.env["omniauth.auth"]
-        account = Account.where(:uid => auth["uid"]).first || Account.create_with_omniauth(auth)
+        account = Account.find_or_create_with_omniauth(auth)
         set_current_account(account)
         redirect "http://" + request.env["HTTP_HOST"] + url(:spend)
     end
