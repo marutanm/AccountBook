@@ -9,13 +9,13 @@ class Account
 
     def self.create_with_omniauth(auth)
         create!( uid: auth["uid"],
-                name: auth["name"],
+                name: auth["user_info"]["name"],
                )
     end
 
     def self.find_or_create_with_omniauth(auth)
-      find_or_create_by(uid: auth["uid"], name: auth["name"]) do |account|
-        account.name = auth["name"]
+      find_or_create_by(uid: auth["uid"], name: auth["user_info"]["name"]) do |account|
+        account.name = auth["user_info"]["name"]
       end
     end
 
