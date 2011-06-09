@@ -3,11 +3,31 @@ require File.expand_path(File.dirname(__FILE__) + '/../../test_config.rb')
 class SpendTest < Test::Unit::TestCase
   context "Spend Model" do
     context "create_new_document" do
-      context "spend" do
+      context "spend first time" do
         setup do
           @params = {:uid => "100", 
             :amount => 1000,
             :comment => "this is comment",
+            :category => "expend"}
+          @spend = Spend.create_new_document(@params)
+        end
+        should "return created document" do
+          assert_equal @params[:uid], @spend.uid
+          assert_equal @params[:amount], @spend.amount
+          assert_equal @params[:comment], @spend.comment
+          assert @spend.isSpend
+        end
+      end
+      context "spend " do
+        setup do
+          @params = {:uid => "100", 
+            :amount => 1000,
+            :comment => "this is comment",
+            :category => "expend"}
+          Spend.create_new_document(@params)
+          @params = {:uid => "100", 
+            :amount => 2000,
+            :comment => "this is comment part two",
             :category => "expend"}
           @spend = Spend.create_new_document(@params)
         end
@@ -34,6 +54,10 @@ class SpendTest < Test::Unit::TestCase
           assert_equal @params[:comment], @spend.comment
           assert !@spend.isSpend
         end
+      end
+
+      teardown do
+        Spend.delete_all
       end
 
     end
