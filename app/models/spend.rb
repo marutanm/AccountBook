@@ -21,8 +21,8 @@ class Spend
       db.comment = params[:comment]
       case params[:category]
       when "expend"
-        db.current = where(uid: params[:uid]) ?
-        where(uid: params[:uid]).first.current.to_i - params[:amount] : params[:amount]
+        db.current = where(uid: params[:uid]).first ?
+        where(uid: params[:uid]).first.current - params[:amount].to_i : params[:amount]
       when "current"
         db.current = params[:amount]
         db.isSpend = FALSE
