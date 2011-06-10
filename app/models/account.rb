@@ -6,6 +6,7 @@ class Account
   field :name, :type => String
   field :uid, :type => String
   field :role, :type => String, :default => "users"
+  embeds_one :balance
 
   def self.create_with_omniauth(auth)
     create!( uid: auth["uid"],
