@@ -7,6 +7,7 @@ class Account
   field :uid, :type => String
   field :role, :type => String, :default => "users"
   embeds_one :balance
+  has_many :spends
 
   def self.create_with_omniauth(auth)
     create!( uid: auth["uid"],
@@ -24,4 +25,7 @@ class Account
     find(id) rescue nil
   end
 
+  def add_new_spend(params)
+    spends << Spend.create_new_document(params)
+  end
 end

@@ -8,13 +8,12 @@ Kdkbook.controllers  do
   end
 
   post :spend do
-    params[:uid] = current_account[:uid]
-    Spend.create_new_document(params)
+    current_account.add_new_spend(params)
     redirect url(:list)
   end
 
   get :list do
-    @documents = Spend.where(:uid => current_account[:uid]).desc(:created_at)
+    @documents = current_account.spends
     render 'spend_list'
   end
 

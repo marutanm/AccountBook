@@ -3,11 +3,11 @@ class Spend
   include Mongoid::Timestamps # adds created_at and updated_at fields
 
   # field <name>, :type => <type>, :default => <value>
-  field :uid, :type => String
   field :isSpend, :type => Boolean, :default => TRUE
   field :amount, :type => Integer
-  field :current, :type => Integer
   field :comment, :type => String
+
+  belongs_to :account
 
   # You can define indexes on documents using the index macro:
   # index :field <, :unique => true>
@@ -19,14 +19,7 @@ class Spend
     create!(uid: params[:uid]) do |db|
       db.amount = params[:amount]
       db.comment = params[:comment]
-      case params[:category]
-      when "expend"
-        db.current = where(uid: params[:uid]).first ?
-        where(uid: params[:uid]).first.current - params[:amount].to_i : params[:amount]
-      when "current"
-        db.current = params[:amount]
-        db.isSpend = FALSE
-      end
+      db.isSpend = params[:category] == "expend"
     end
   end
 
