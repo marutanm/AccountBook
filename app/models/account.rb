@@ -18,6 +18,7 @@ class Account
   def self.find_or_create_with_omniauth(auth)
     find_or_create_by(uid: auth["uid"], name: auth["user_info"]["name"]) do |account|
       account.name = auth["user_info"]["name"]
+      account.balance = Balance.new
     end
   end
 
@@ -27,5 +28,7 @@ class Account
 
   def add_new_spend(params)
     spends << Spend.create_new_document(params)
+    balance.current = params[:category] == "expend" ?
+      balance.current - params[:amount].to_i : params[:amount]
   end
 end

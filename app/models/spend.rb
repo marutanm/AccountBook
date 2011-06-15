@@ -16,11 +16,9 @@ class Spend
   # key :field <, :another_field, :one_more ....>
 
   def self.create_new_document(params)
-    create!(uid: params[:uid]) do |db|
-      db.amount = params[:amount]
-      db.comment = params[:comment]
-      db.isSpend = params[:category] == "expend"
-    end
+    create!( amount: params[:amount],
+            comment: params[:comment],
+            isSpend: params[:category] == "expend")
   end
 
 end
