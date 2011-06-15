@@ -3,8 +3,8 @@ class Account
   include Mongoid::Timestamps # adds created_at and updated_at fields
 
   # field <name>, :type => <type>, :default => <value>
-  field :name, :type => String
   field :uid, :type => String
+  field :name, :type => String
   field :role, :type => String, :default => "users"
   embeds_one :balance
   has_many :spends
