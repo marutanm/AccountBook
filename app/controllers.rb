@@ -19,7 +19,7 @@ Kdkbook.controllers  do
 
   get :login do
     haml <<-HAML.gsub(/^\s*/, '')
-            Logins with
+            Please login with
             =link_to('Twitter',  '/auth/twitter')
     HAML
   end
