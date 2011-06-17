@@ -2,5 +2,5 @@
   -@documents.each do |docoment|
     %tr
       %td=docoment.amount
-      %td=docoment.comment
-      %td=docoment.created_at
+      %td=escape_html(docoment.comment)
+      %td=time_ago_in_words(docoment.created_at)
