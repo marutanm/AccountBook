@@ -5,7 +5,7 @@
       = select_tag :category, :options => ['expend', 'current'], :selected => 'expend'
     %p
       = label_tag :amount, :class => 'first'
-      = text_field_tag :amount, :value => params[:amount]
+      = text_field_tag :amount, :value => params[:amount], :type => 'number', :min => '0', :step => '100', :value => '100'
     %p
       = label_tag :comment, :class => 'first'
       = text_area_tag :comment, :value => params[:comment]
