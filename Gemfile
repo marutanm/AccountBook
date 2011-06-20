@@ -8,6 +8,7 @@ gem 'rake', '~> 0.8.7'
 gem 'rack-flash'
 
 # Component requirements
+gem 'sass'
 gem 'haml'
 gem 'mongoid', "~> 2.0.2"
 gem 'bson_ext', :require => "mongo"

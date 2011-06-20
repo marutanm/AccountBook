@@ -1,4 +1,5 @@
 class Kdkbook < Padrino::Application
+  register ScssInitializer
   register Padrino::Mailer
   register Padrino::Helpers
   register Padrino::Admin::AccessControl
