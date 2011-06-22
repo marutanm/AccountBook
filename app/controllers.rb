@@ -17,6 +17,12 @@ Kdkbook.controllers  do
     render 'spend_list'
   end
 
+  get :list, :with => :id do
+    @documents = params[:id] ?
+      Account.where(nickname: params[:id]).first.spends : current_account.spends
+    render 'spend_list'
+  end
+
   get :login do
     haml <<-HAML.gsub(/^\s*/, '')
             Please login with

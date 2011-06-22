@@ -5,6 +5,7 @@ class Account
   # field <name>, :type => <type>, :default => <value>
   field :uid, :type => String
   field :name, :type => String
+  field :nickname, :type => String
   field :role, :type => String, :default => "users"
   embeds_one :balance
   has_many :spends
@@ -16,8 +17,11 @@ class Account
   end
 
   def self.find_or_create_with_omniauth(auth)
-    find_or_create_by(uid: auth["uid"], name: auth["user_info"]["name"]) do |account|
+    find_or_create_by(uid: auth["uid"], 
+                      nickname: auth["user_info"]["nickname"],
+                      name: auth["user_info"]["name"]) do |account|
       account.name = auth["user_info"]["name"]
+      account.nickname = auth["user_info"]["nickname"]
       account.balance = Balance.new
     end
   end
