@@ -4,6 +4,7 @@ Kdkbook.controllers  do
   end
 
   get :spend do
+    @account = current_account
     render 'spend_form'
   end
 
@@ -13,11 +14,13 @@ Kdkbook.controllers  do
   end
 
   get :list do
+    @account = current_account
     @documents = current_account.spends
     render 'spend_list'
   end
 
   get :list, :with => :id do
+    @account = current_account
     @documents = params[:id] ?
       Account.where(nickname: params[:id]).first.spends : current_account.spends
     render 'spend_list'
