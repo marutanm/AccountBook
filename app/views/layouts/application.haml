@@ -4,15 +4,12 @@
     = stylesheet_link_tag 'application'
   %body
     #header
-      %h1 This is header
       #links
         =link_to('About',  '/about')
         =link_to('List',  '/list')
         =link_to('Spend',  '/spend')
         =link_to('Logout',  '/destroy')
-      %hr
     #container
       #main= yield
     #footer
-      %hr
-      footer
+      2011, @marutanm
