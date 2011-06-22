@@ -17,13 +17,12 @@ class Account
   end
 
   def self.find_or_create_with_omniauth(auth)
-    find_or_create_by(uid: auth["uid"], 
-                      nickname: auth["user_info"]["nickname"],
-                      name: auth["user_info"]["name"]) do |account|
-      account.name = auth["user_info"]["name"]
-      account.nickname = auth["user_info"]["nickname"]
+    account = find_or_create_by(uid: auth["uid"]) do |account|
       account.balance = Balance.new
     end
+    account.name = auth["user_info"]["name"]
+    account.nickname = auth["user_info"]["nickname"]
+    account
   end
 
   def self.find_by_id(id)

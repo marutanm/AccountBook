@@ -48,7 +48,7 @@ class AccountTest < Test::Unit::TestCase
           assert_equal @auth["uid"], @account.uid
           assert_equal @auth["user_info"]["name"], @account.name
           assert_equal "users", @account.role
-          assert_equal 2, Account.count
+          assert_equal 1, Account.count
         end
         teardown do
           Account.delete_all
