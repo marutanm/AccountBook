@@ -4,10 +4,10 @@
       = label_tag :category
       = select_tag :category, :options => ['expend', 'current'], :selected => 'expend'
     %p
-      = label_tag :amount, :class => 'first'
-      = text_field_tag :amount, :value => params[:amount], :type => 'number', :min => '0', :step => '100', :value => '100'
+      = label_tag :amount
+      = text_field_tag :amount, :value => params[:amount], :type => 'number', :min => '0', :step => '100', :value => '100', :pattern => '[0-9]'
     %p
-      = label_tag :comment, :class => 'first'
-      = text_area_tag :comment, :value => params[:comment]
+      = label_tag :comment
+      = text_field_tag :comment, :value => params[:comment]
   - field_set_tag(:class => 'buttons') do
     = submit_tag

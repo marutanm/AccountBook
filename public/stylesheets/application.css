@@ -30,30 +30,29 @@ body {
   margin: 20px auto;
   overflow: hidden; }
 
-#header {
-  background-color: #900209;
+header {
   padding: 30px 10px 20px 10px;
   border-bottom: 2px solid #ec9a94;
   overflow: hidden; }
-  #header h1 {
+  header h1 {
     float: left;
     color: #ecebc3;
     font-size: 2.3em;
     font-weight: bold; }
-  #header ul.menu {
+  header ul.menu {
     margin-left: 80px;
     margin-top: 10px;
     float: left;
     overflow: hidden; }
-    #header ul.menu li {
+    header ul.menu li {
       float: left;
       margin-right: 20px;
       padding-bottom: 5px; }
-      #header ul.menu li a {
+      header ul.menu li a {
         font-size: 1.2em;
         color: #dff6fc;
         text-decoration: none; }
-        #header ul.menu li a:hover {
+        header ul.menu li a:hover {
           text-decoration: underline; }
 
 #main {
@@ -119,5 +118,5 @@ body {
 #about p {
   padding-bottom: 12px; }
 
-#footer {
+footer {
   padding: 30px 10px 10px 10px; }
