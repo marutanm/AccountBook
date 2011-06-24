@@ -22,6 +22,7 @@ class Account
     end
     account.name = auth["user_info"]["name"]
     account.nickname = auth["user_info"]["nickname"]
+    account.save
     account
   end
 
