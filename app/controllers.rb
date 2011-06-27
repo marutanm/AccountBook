@@ -10,7 +10,7 @@ Kdkbook.controllers  do
 
   post :spend do
     current_account.add_new_spend(params)
-    redirect url(:list)
+    redirect url(:list, :id => current_account.nickname)
   end
 
   get :list do
