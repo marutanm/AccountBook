@@ -10,12 +10,6 @@ class Account
   embeds_one :balance
   has_many :spends
 
-  def self.create_with_omniauth(auth)
-    create!( uid: auth["uid"],
-            name: auth["user_info"]["name"],
-           )
-  end
-
   def self.find_or_create_with_omniauth(auth)
     account = find_or_create_by(uid: auth["uid"]) do |account|
       account.balance = Balance.new
