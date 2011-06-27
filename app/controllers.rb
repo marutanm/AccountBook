@@ -15,7 +15,7 @@ Kdkbook.controllers  do
 
   get :list do
     @account = current_account
-    @documents = current_account.spends
+    @documents = current_account.spends.desc(:updated_at)
     render 'spend_list'
   end
 
