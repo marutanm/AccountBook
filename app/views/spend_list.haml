@@ -1,4 +1,7 @@
 %table
+  %h1
+    =@account.balance.current
+    JPY
   -@documents.each do |docoment|
     %tr
       %td=docoment.amount
