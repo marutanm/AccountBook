@@ -21,9 +21,20 @@ Kdkbook.controllers  do
 
   get :list, :with => :id do
     @account = current_account
-    @documents = params[:id] ?
-      Account.where(nickname: params[:id]).first.spends : current_account.spends
-    render 'spend_list'
+    case params[:id] 
+    when current_account.nickname
+      redirect :list
+    else
+      authorized_user = Account.where(nickname: params[:id]).first[:authorized_user] rescue Array.new
+      if authorized_user.include?(@account.nickname)
+        @documents = Account.where(nickname: params[:id]).first.spends
+        render 'spend_list'
+      else
+        status 403
+        "Forbidden"
+      end
+    end
+  end
 
   get :authorize do
     @authorized = current_account.authorized_user
