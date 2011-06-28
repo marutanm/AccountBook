@@ -37,5 +37,6 @@ class Account
   
   def authorize(id)
     authorized_user << id unless authorized_user.include?(id)
+    save
   end
 end

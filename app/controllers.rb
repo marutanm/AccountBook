@@ -24,6 +24,15 @@ Kdkbook.controllers  do
     @documents = params[:id] ?
       Account.where(nickname: params[:id]).first.spends : current_account.spends
     render 'spend_list'
+
+  get :authorize do
+    @authorized = current_account.authorized_user
+    render 'authorize_form'
+  end
+
+  post :authorize do
+    current_account.authorize(params[:authorize])
+    redirect url :authorize
   end
 
   get :login do
