@@ -7,6 +7,7 @@ class Account
   field :name, :type => String
   field :nickname, :type => String
   field :role, :type => String, :default => "users"
+  field :authorized_user, :type => Array, :default => Array.new
   embeds_one :balance
   has_many :spends
 
@@ -32,5 +33,9 @@ class Account
     when "current"
       create_balance(current: params[:amount])
     end
+  end
+  
+  def authorize(id)
+    authorized_user << id unless authorized_user.include?(id)
   end
 end
