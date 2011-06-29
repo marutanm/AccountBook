@@ -118,5 +118,8 @@ header {
 #about p {
   padding-bottom: 12px; }
 
+#login {
+  float: right; }
+
 footer {
   padding: 30px 10px 10px 10px; }
