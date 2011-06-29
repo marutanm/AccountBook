@@ -28,35 +28,38 @@ body {
 #container {
   width: 80%;
   margin: 20px auto;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative;
+  min-height: 500px; }
 
 header {
-  padding: 30px 10px 20px 10px;
+  padding: 20px 10px 0px 10px;
+  overflow: hidden;
   border-bottom: 2px solid #ec9a94;
-  overflow: hidden; }
+  position: relative; }
+  header a {
+    text-decoration: none; }
+  header #title {
+    float: left; }
   header h1 {
-    float: left;
-    color: #ecebc3;
     font-size: 2.3em;
-    font-weight: bold; }
-  header ul.menu {
-    margin-left: 80px;
-    margin-top: 10px;
-    float: left;
-    overflow: hidden; }
-    header ul.menu li {
-      float: left;
-      margin-right: 20px;
-      padding-bottom: 5px; }
-      header ul.menu li a {
-        font-size: 1.2em;
-        color: #dff6fc;
-        text-decoration: none; }
-        header ul.menu li a:hover {
-          text-decoration: underline; }
+    font-weight: bold;
+    margin-bottom: 0px; }
+
+#login {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+
+#post-header a {
+  text-decoration: none; }
+
+nav {
+  padding-top: 5px; }
+  nav #links {
+    float: left; }
 
 #main {
-  float: left;
   width: 600px;
   padding-top: 20px; }
   #main h2 {
@@ -118,10 +121,7 @@ header {
 #about p {
   padding-bottom: 12px; }
 
-#login {
-  float: right; }
-
 footer {
-  padding: 30px 10px 10px 10px; }
+  border-top: 2px dotted #ec9a94; }
   footer a {
     text-decoration: none; }

@@ -1,3 +1,11 @@
+@mixin nodec {
+  a {
+    text-decoration: none;
+  }
+}
+
+$border-color: #ec9a94;
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -37,41 +45,44 @@ body {
   width: 80%;
   margin: 20px auto;
   overflow: hidden; 
+  position:relative;
+  min-height: 500px;
 }
 
 header {
-  padding: 30px 10px 20px 10px;
-  border-bottom: 2px solid #ec9a94;
+  @include nodec;
+  padding: 20px 10px 0px 10px;
   overflow: hidden;
-  h1 {
+  border-bottom: 2px solid $border-color;
+  position: relative;
+  #title {
     float: left;
-    color: #ecebc3;
+  }
+  h1 {
     font-size: 2.3em;
     font-weight: bold; 
+    margin-bottom: 0px;
   }
-  ul.menu {
-    margin-left: 80px;
-    margin-top: 10px;
+}
+
+#login {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#post-header {
+  @include nodec;
+}
+
+nav {
+  padding-top: 5px;
+  #links {
     float: left;
-    overflow: hidden;
-    li {
-      float: left;
-      margin-right: 20px;
-      padding-bottom: 5px;
-      a {
-        font-size: 1.2em;
-        color: #dff6fc;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline; 
-        } 
-      } 
-    } 
-  } 
+  }
 }
 
 #main {
-  float: left;
   width: 600px;
   padding-top: 20px;
   h2 {
@@ -154,13 +165,8 @@ header {
   } 
 }
 
-#login {
-  float: right;
+footer {
+  border-top: 2px dotted $border-color;
+  @include nodec
 }
 
-footer {
-  padding: 30px 10px 10px 10px; 
-  a {
-  text-decoration: none;
-  }
-}

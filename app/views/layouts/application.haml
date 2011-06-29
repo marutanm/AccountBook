@@ -4,18 +4,20 @@
     = stylesheet_link_tag 'application'
   %body
     %header
+      %h1#title title
+      #login
+        - if @account
+          ="Logined as " + link_to("@#{@account.nickname}", "http://twitter.com/#{@account.nickname}")
+          =link_to('Logout',  '/destroy')
+        - else
+          ="Not logged in"
+    #post-header
       %nav
         #links
           =link_to('About',  '/about')
           =link_to('List',  '/list')
           =link_to('Spend',  '/spend')
           =link_to('Authorize',  '/authorize')
-          #login
-            - if @account
-              ="Logined as " + link_to("@#{@account.nickname}", "http://twitter.com/#{@account.nickname}")
-              =link_to('Logout',  '/destroy')
-            - else
-              ="Not logged in"
     #container
       #main= yield
     %footer
