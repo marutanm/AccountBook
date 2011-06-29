@@ -15,11 +15,13 @@ class Kdkbook < Padrino::Application
   access_control.roles_for :any do |role|
     role.protect "/spend"
     role.protect "/list"
+    role.protect "/authorize"
   end
 
   access_control.roles_for :users do |role|
     role.allow "/spend"
     role.allow "/list"
+    role.allow "/authorize"
   end
 
 end
