@@ -1,10 +1,13 @@
 Kdkbook.controllers  do
+  before do
+    @account = current_account
+  end
+
   get :index do
     'Hello world!'
   end
 
   get :spend do
-    @account = current_account
     render 'spend_form'
   end
 
@@ -14,13 +17,11 @@ Kdkbook.controllers  do
   end
 
   get :list do
-    @account = current_account
     @documents = current_account.spends.desc(:updated_at)
     render 'spend_list'
   end
 
   get :list, :with => :id do
-    @account = current_account
     case params[:id] 
     when current_account.nickname
       redirect :list
