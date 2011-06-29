@@ -6,6 +6,7 @@ class Account
   field :uid, :type => String
   field :name, :type => String
   field :nickname, :type => String
+  field :image, :type => String
   field :role, :type => String, :default => "users"
   field :authorized_user, :type => Array, :default => Array.new
   embeds_one :balance
@@ -17,6 +18,7 @@ class Account
     end
     account.name = auth["user_info"]["name"]
     account.nickname = auth["user_info"]["nickname"]
+    account.image = auth["user_info"]["image"]
     account.save
     account
   end
