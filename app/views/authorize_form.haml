@@ -1,4 +1,7 @@
-= p @authorized
+%ul 
+  - @authorized.each do |user|
+    %li
+      = user
 - form_tag 'authorize' do
   = label_tag :authorize
   = text_field_tag :authorize
