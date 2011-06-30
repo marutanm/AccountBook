@@ -61,14 +61,14 @@ Kdkbook.controllers  do
 
   get :destroy do
     set_current_account(nil)
-    redirect url(:login)
+    redirect url :login
   end
 
   get :auth, :map => '/auth/:provider/callback' do
     auth    = request.env["omniauth.auth"]
     account = Account.find_or_create_with_omniauth(auth)
     set_current_account(account)
-    redirect "http://" + request.env["HTTP_HOST"] + url(:spend)
+    redirect url :spend
   end
 
 end
