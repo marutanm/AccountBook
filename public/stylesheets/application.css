@@ -27,7 +27,7 @@ body {
 
 #container {
   width: 80%;
-  margin: 20px auto;
+  margin: 40px auto 20px;
   overflow: hidden;
   position: relative;
   min-height: 500px; }
@@ -125,3 +125,17 @@ footer {
   border-top: 2px dotted #ec9a94; }
   footer a {
     text-decoration: none; }
+
+#balance {
+  float: left;
+  font-size: 2.3em;
+  font-weight: bold;
+  margin-bottom: 0px; }
+
+#jpy {
+  position: relative;
+  top: 20px;
+  left: 5px; }
+
+#clear {
+  clear: both; }
