@@ -53,7 +53,16 @@ class ControllerTest < Test::Unit::TestCase
     should "display form" do
       assert last_response.ok?
       assert last_response.body =~ /Logined as/
+      assert last_response.body =~ /test_user/
     end      
+    context 'GET /authorize' do
+      setup do
+        get '/authorize'
+      end
+      should "display form" do
+        assert last_response.body =~ /Authorize: /
+      end
+    end
   end
 
 end
