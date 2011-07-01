@@ -20,6 +20,13 @@
           =link_to('Spend',  '/spend')
           =link_to('Authorize',  '/authorize')
     #container
+      - if @account
+        #current
+          #balance
+            =@account.balance.current
+          #jpy
+            JPY
+        #clear
       #main= yield
     %footer
       %small

@@ -1,17 +1,32 @@
-@mixin nodec {
-  a {
-    text-decoration: none;
-  }
-}
-
 $border-color: #ec9a94;
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   background-color: #e6e0d9;
+  header {
+    padding: 20px 10px 0px 10px;
+    overflow: hidden;
+    border-bottom: 2px solid $border-color;
+    position: relative;
+  }
+  nav {
+    padding-top: 5px;
+    #links {
+      float: left;
+    }
+  }
+  footer {
+    border-top: 2px dotted $border-color;
+  }
   a {
     color: #336699;
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 2.3em;
+    font-weight: bold; 
+    margin-bottom: 0px;
   }
   h2 {
     padding-bottom: 12px;
@@ -41,28 +56,16 @@ body {
   }
 }
 
+#title {
+  float: left;
+}
+
 #container {
   width: 80%;
   margin: 40px auto 20px;
   overflow: hidden; 
   position:relative;
   min-height: 500px;
-}
-
-header {
-  @include nodec;
-  padding: 20px 10px 0px 10px;
-  overflow: hidden;
-  border-bottom: 2px solid $border-color;
-  position: relative;
-  #title {
-    float: left;
-  }
-  h1 {
-    font-size: 2.3em;
-    font-weight: bold; 
-    margin-bottom: 0px;
-  }
 }
 
 #login {
@@ -72,14 +75,6 @@ header {
 }
 
 #post-header {
-  @include nodec;
-}
-
-nav {
-  padding-top: 5px;
-  #links {
-    float: left;
-  }
 }
 
 #main {
@@ -88,99 +83,20 @@ nav {
   h2 {
     font-size: 2.1em; 
   }
-  .post {
-    margin-bottom: 20px;
-    p {
-      padding-bottom: 10px; 
-    }
-    .title {
-      font-family: "Georgia,Times New Roman,serif";
-      font-size: 2em;
-      color: #752a26;
-      a {
-        color: #752a26;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline; 
-        } 
-      } 
-    }
-    .date {
-      font-size: 1.1em;
-      color: #999999;
-      display: block;
-      margin-bottom: 15px;
-      margin-top: 2px; 
-    }
-    .body {
-      padding-bottom: 10px; 
-    }
-    .details {
-      border-top: 1px solid #cccccc;
-      margin-bottom: 0.25em;
-      padding: 5px 0;
-      overflow: hidden;
-      .author {
-        float: left;
-        padding-right: 5px;
-        border-right: 1px solid #cccccc; 
-      } 
-    } 
+}
+
+#current {
+  #balance {
+    float: left;
+    font-size: 2.3em;
+    font-weight: bold; 
+    margin-bottom: 0px;
   }
-  #show {
-    .author {
-      border-right: none; 
-    } 
-  } 
-}
-
-#sidebar {
-  padding: 20px;
-  margin-left: 20px;
-  float: left;
-  height: 650px;
-  width: 320px;
-  border: 1px dotted black;
-  p {
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 12px; 
-  } 
-}
-
-#about {
-  h2 {
-    font-family: "Georgia,Times New Roman,serif";
-    font-size: 2em;
-    color: #752a26; 
+  #jpy {
+    position: relative;
+    top: 20px;
+    left: 5px;
   }
-  h3 {
-    font-family: "Georgia,Times New Roman,serif";
-    font-size: 1.5em;
-    color: #752a26;
-    padding-bottom: 6px; 
-  }
-  p {
-    padding-bottom: 12px; 
-  } 
-}
-
-footer {
-  border-top: 2px dotted $border-color;
-  @include nodec
-}
-
-#balance {
-  float: left;
-  font-size: 2.3em;
-  font-weight: bold; 
-  margin-bottom: 0px;
-}
-
-#jpy {
-  position: relative;
-  top: 20px;
-  left: 5px;
 }
 
 #clear {

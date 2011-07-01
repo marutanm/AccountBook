@@ -1,11 +1,4 @@
 %table
-  - if @account
-    %div
-      #balance
-        =@account.balance.current
-      #jpy
-        JPY
-  #clear
   -@documents.each do |docoment|
     %tr
       %td=docoment.amount
