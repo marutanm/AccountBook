@@ -9,7 +9,7 @@ Kdkbook.controllers  do
 
   post :spend do
     current_account.add_new_spend(params)
-    redirect url(:list, :id => current_account.nickname)
+    redirect :list, :id => current_account.nickname
   end
 
   get :list do
@@ -25,7 +25,7 @@ Kdkbook.controllers  do
       authorized_user = Account.where(nickname: params[:id]).first[:authorized_user] rescue Array.new
       if authorized_user.include?(@account.nickname)
         @documents = Account.where(nickname: params[:id]).first.spends
-        render 'spend_list'
+        render :list
       else
         status 403
         "Forbidden"
@@ -35,7 +35,7 @@ Kdkbook.controllers  do
 
   get :authorize do
     @authorized = current_account.authorized_user
-    render 'authorize_form'
+    render :authorize_form
   end
 
   post :authorize do
@@ -64,7 +64,7 @@ Kdkbook.controllers  do
     auth    = request.env["omniauth.auth"]
     account = Account.find_or_create_with_omniauth(auth)
     set_current_account(account)
-    redirect url :spend
+    redirect :list, :id => current_account.nickname
   end
 
 end
