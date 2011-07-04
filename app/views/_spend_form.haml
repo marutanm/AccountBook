@@ -1,9 +1,6 @@
 - form_tag 'spend', :class => 'spend-form' do
   - field_set_tag do
     %p
-      = label_tag :category
-      = select_tag :category, :options => ['expend', 'current'], :selected => 'expend'
-    %p
       = label_tag :amount
       = text_field_tag :amount, :type => 'number', :min => '0', :step => '100', :value => '100', :pattern => '[0-9]'
     %p
