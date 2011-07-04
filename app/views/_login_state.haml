@@ -1,0 +1,6 @@
+- if @account
+  ="Logined as " + link_to("@#{@account.nickname}", "http://twitter.com/#{@account.nickname}")
+  %img{'src' => @account.image}
+  =link_to('Logout',  '/destroy')
+- else
+  ="Not logged in"

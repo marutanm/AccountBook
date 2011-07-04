@@ -7,10 +7,6 @@ Kdkbook.controllers  do
     'Hello world!'
   end
 
-  get :spend do
-    render 'spend_form'
-  end
-
   post :spend do
     current_account.add_new_spend(params)
     redirect url(:list, :id => current_account.nickname)
@@ -18,7 +14,7 @@ Kdkbook.controllers  do
 
   get :list do
     @documents = current_account.spends.desc(:updated_at)
-    render 'spend_list'
+    render :list
   end
 
   get :list, :with => :id do

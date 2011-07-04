@@ -4,16 +4,16 @@
     = stylesheet_link_tag 'application'
   %body
     %header
+      %h1#title title
+      #login= partial :login_state
+    #post-header
       %nav
         #links
-          =link_to('About',  '/about')
+          -#=link_to('About',  '/about')
           =link_to('List',  '/list')
-          =link_to('Spend',  '/spend')
           =link_to('Authorize',  '/authorize')
-          =link_to('Logout',  '/destroy')
-          =@account ? "Logined as " + link_to("@#{@account.nickname}", "http://twitter.com/#{@account.nickname}") : "Not logged in"
     #container
       #main= yield
     %footer
       %small
-        Copyright (c) 2011 marutanm
+        ="Copyright (c) 2011 " + link_to('@marutanm', 'http://twitter.com/marutanm')

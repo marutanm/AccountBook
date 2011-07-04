@@ -2,8 +2,24 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   background-color: #e6e0d9; }
+  body header {
+    padding: 20px 10px 0px 10px;
+    overflow: hidden;
+    border-bottom: 2px solid #ec9a94;
+    position: relative; }
+  body nav {
+    padding-top: 5px; }
+    body nav #links {
+      float: left; }
+  body footer {
+    border-top: 2px dotted #ec9a94; }
   body a {
-    color: #336699; }
+    color: #336699;
+    text-decoration: none; }
+  body h1 {
+    font-size: 2.3em;
+    font-weight: bold;
+    margin-bottom: 0px; }
   body h2 {
     padding-bottom: 12px;
     font-weight: bold; }
@@ -25,98 +41,42 @@ body {
       body ul.bulleted li span {
         font-weight: bold; }
 
+#title {
+  float: left; }
+
 #container {
   width: 80%;
-  margin: 20px auto;
-  overflow: hidden; }
+  margin: 40px auto 20px;
+  overflow: hidden;
+  position: relative;
+  min-height: 500px; }
 
-header {
-  padding: 30px 10px 20px 10px;
-  border-bottom: 2px solid #ec9a94;
-  overflow: hidden; }
-  header h1 {
-    float: left;
-    color: #ecebc3;
-    font-size: 2.3em;
-    font-weight: bold; }
-  header ul.menu {
-    margin-left: 80px;
-    margin-top: 10px;
-    float: left;
-    overflow: hidden; }
-    header ul.menu li {
-      float: left;
-      margin-right: 20px;
-      padding-bottom: 5px; }
-      header ul.menu li a {
-        font-size: 1.2em;
-        color: #dff6fc;
-        text-decoration: none; }
-        header ul.menu li a:hover {
-          text-decoration: underline; }
+#login {
+  position: absolute;
+  bottom: 0;
+  right: 0; }
 
 #main {
-  float: left;
   width: 600px;
   padding-top: 20px; }
   #main h2 {
     font-size: 2.1em; }
-  #main .post {
-    margin-bottom: 20px; }
-    #main .post p {
-      padding-bottom: 10px; }
-    #main .post .title {
-      font-family: "Georgia,Times New Roman,serif";
-      font-size: 2em;
-      color: #752a26; }
-      #main .post .title a {
-        color: #752a26;
-        text-decoration: none; }
-        #main .post .title a:hover {
-          text-decoration: underline; }
-    #main .post .date {
-      font-size: 1.1em;
-      color: #999999;
-      display: block;
-      margin-bottom: 15px;
-      margin-top: 2px; }
-    #main .post .body {
-      padding-bottom: 10px; }
-    #main .post .details {
-      border-top: 1px solid #cccccc;
-      margin-bottom: 0.25em;
-      padding: 5px 0;
-      overflow: hidden; }
-      #main .post .details .author {
-        float: left;
-        padding-right: 5px;
-        border-right: 1px solid #cccccc; }
-  #main #show .author {
-    border-right: none; }
 
-#sidebar {
-  padding: 20px;
-  margin-left: 20px;
+#current #balance {
   float: left;
-  height: 650px;
-  width: 320px;
-  border: 1px dotted black; }
-  #sidebar p {
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 12px; }
+  font-size: 2.3em;
+  font-weight: bold;
+  margin-bottom: 0px; }
+#current #jpy {
+  position: relative;
+  top: 20px;
+  left: 5px; }
 
-#about h2 {
-  font-family: "Georgia,Times New Roman,serif";
-  font-size: 2em;
-  color: #752a26; }
-#about h3 {
-  font-family: "Georgia,Times New Roman,serif";
-  font-size: 1.5em;
-  color: #752a26;
-  padding-bottom: 6px; }
-#about p {
-  padding-bottom: 12px; }
+table {
+  float: left; }
 
-footer {
-  padding: 30px 10px 10px 10px; }
+#spend_form {
+  float: right; }
+
+#clear {
+  clear: both; }
