@@ -6,5 +6,6 @@
     %p
       = label_tag :comment
       = text_field_tag :comment, :value => params[:comment]
+  = hidden_field_tag :category, :value => 'expend'
   - field_set_tag(:class => 'buttons') do
     = submit_tag
