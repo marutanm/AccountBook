@@ -5,13 +5,7 @@
   %body
     %header
       %h1#title title
-      #login
-        - if @account
-          ="Logined as " + link_to("@#{@account.nickname}", "http://twitter.com/#{@account.nickname}")
-          %img{'src' => @account.image}
-          =link_to('Logout',  '/destroy')
-        - else
-          ="Not logged in"
+      #login= partial :login_state
     #post-header
       %nav
         #links
@@ -19,13 +13,6 @@
           =link_to('List',  '/list')
           =link_to('Authorize',  '/authorize')
     #container
-      - if @account
-        #current
-          #balance
-            =@account.balance.current
-          #jpy
-            JPY
-        #clear
       #main= yield
     %footer
       %small
