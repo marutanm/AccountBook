@@ -24,7 +24,7 @@ Kdkbook.controllers  do
     else
       authorized_user = Account.where(nickname: params[:id]).first[:authorized_user] rescue Array.new
       if authorized_user.include?(@account.nickname)
-        @documents = Account.where(nickname: params[:id]).first.spends
+        @documents = Account.where(nickname: params[:id]).first.spends.desc(:updated_at)
         render :list
       else
         status 403
