@@ -29,10 +29,11 @@ class Account
 
   def add_new_spend(params)
     spends << Spend.create_new_document(params)
+    params[:category] ||= :expend
     case params[:category]
-    when "expend"
+    when :expend
       create_balance(current: balance.current - params[:amount].to_i)
-    when "current"
+    when :current
       create_balance(current: params[:amount])
     end
   end
