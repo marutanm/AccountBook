@@ -1,7 +1,6 @@
 This project is INCOMPLETE.
 ---------------------------
 
-
 And this is just archive to remove local copy.
 
 
@@ -10,4 +9,5 @@ Happly, Zaim is well made.
 
 
 What can I do next around this project?
+
 - Development the functions for ME via Zaim Oauth(will be open the last of July)
